@@ -212,6 +212,17 @@
   .timeline-body p{font-size:14.5px;margin-bottom:0;}
 
   /* ---------- PROJECTS ---------- */
+  .work-note{
+    display:flex;align-items:flex-start;gap:12px;
+    background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent-3);
+    border-radius:12px;padding:14px 18px;margin-bottom:32px;max-width:720px;
+  }
+  .work-note .note-icon{
+    flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--surface-2);
+    display:flex;align-items:center;justify-content:center;font-size:13.5px;margin-top:1px;
+  }
+  .work-note p{margin:0;font-size:13.5px;color:var(--text-dim);line-height:1.55;}
+  .work-note b{color:var(--text);font-weight:600;}
   .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
   .filter-btn{
     padding:9px 18px;border-radius:999px;border:1px solid var(--border);background:var(--surface);
@@ -242,6 +253,13 @@
     background:var(--surface-2);color:var(--text-faint);border:1px solid var(--border);
   }
   .card-platforms{font-size:12.5px;color:var(--accent-2);font-weight:600;letter-spacing:.02em;}
+  .card-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 12px;margin-top:14px;}
+  .card-links{display:flex;flex-wrap:wrap;gap:6px 14px;}
+  .card-link{
+    font-size:13px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:5px;
+    transition:gap .2s ease;
+  }
+  .card-link:hover{gap:9px;color:var(--accent-2);}
   .featured-badge{
     position:absolute;top:22px;right:22px;font-size:11px;font-weight:700;color:#fff;
     background:var(--grad);padding:5px 11px;border-radius:999px;letter-spacing:.04em;
@@ -474,6 +492,10 @@
         <h2>Mobile &amp; Web Solutions</h2>
         <p>A comprehensive look at the apps and platforms I've designed and built — filter by category to explore.</p>
       </div>
+      <div class="work-note reveal">
+        <span class="note-icon">ⓘ</span>
+        <p><b>Heads up on live links —</b> several of these were built for clients, so a listing can go offline if that business discontinues the app or pulls it from the store. That's outside my control, not a sign the work itself didn't hold up.</p>
+      </div>
       <div class="filters reveal" id="filters">
         <button class="filter-btn active" data-filter="all">All Projects</button>
         <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
@@ -603,23 +625,33 @@
       icon:'🍔', title:'Grubhouse', category:['mobile'], platforms:'iOS · Android',
       tags:['Food Delivery','Students'],
       desc:"Redefining food delivery for students in London — built for convenience, affordability, and satisfaction from order to doorstep.",
-      featured:true
+      featured:true,
+      links:[{label:'Android', url:'https://play.google.com/store/apps/details?id=com.grubhouse.customerapp3&hl=en'}]
     },
     {
       icon:'📍', title:'EcuaGPS', category:['mobile'], platforms:'iOS · Android',
       tags:['GPS Tracking','Safety'],
-      desc:"Real-time vehicle tracking and safety app with speed, low-battery, and geofence entry/exit alerts, plus vehicle recovery tools."
+      desc:"Real-time vehicle tracking and safety app with speed, low-battery, and geofence entry/exit alerts, plus vehicle recovery tools.",
+      links:[
+        {label:'iOS', url:'https://apps.apple.com/pk/app/ecuagps/id6445966703'},
+        {label:'Android', url:'https://play.google.com/store/apps/details?id=com.ecua.gps&hl=en'}
+      ]
     },
     {
       icon:'🛍️', title:'Darloo', category:['mobile'], platforms:'iOS · Android',
       tags:['E-Commerce','Shopping'],
-      desc:"An all-in-one shopping app across clothing, shoes, toys and kids' essentials, with favorites, daily deals, and fast global shipping."
+      desc:"An all-in-one shopping app across clothing, shoes, toys and kids' essentials, with favorites, daily deals, and fast global shipping.",
+      links:[
+        {label:'iOS', url:'https://apps.apple.com/pk/app/darloo/id6747489472'},
+        {label:'Android', url:'https://play.google.com/store/apps/details?id=com.animmza.ayoob&hl=en'}
+      ]
     },
     {
       icon:'🎓', title:'Consultus.io', category:['web'], platforms:'Web Platform',
       tags:['EdTech','Study Abroad'],
       desc:"A study-abroad consultation platform with dedicated student and agent panels for course search, application tracking, and communication.",
-      featured:true
+      featured:true,
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/details?id=com.cofounder.consultus'}]
     },
     {
       icon:'🧒', title:'CDMS & Smart Guard', category:['mobile'], platforms:'Android',
@@ -629,12 +661,14 @@
     {
       icon:'📰', title:'WorldView News', category:['mobile'], platforms:'Mobile App',
       tags:['News','Media'],
-      desc:"A location-based breaking news app delivering real-time global coverage across politics, technology, entertainment and more."
+      desc:"A location-based breaking news app delivering real-time global coverage across politics, technology, entertainment and more.",
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/details?id=com.evokeplanet.breakingnews'}]
     },
     {
       icon:'⛅', title:'Live Weather Forecast', category:['mobile'], platforms:'Mobile App',
       tags:['Weather','Utility'],
-      desc:"24-hour and 7-day local and multi-city forecasts with severe weather alerts and accurate long-range predictions."
+      desc:"24-hour and 7-day local and multi-city forecasts with severe weather alerts and accurate long-range predictions.",
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/details?id=com.evokeplanet.weatherforecast'}]
     },
     {
       icon:'🚗', title:'Wassalmi', category:['mobile'], platforms:'Mobile App',
@@ -644,43 +678,57 @@
     {
       icon:'🩺', title:'Nursing Aid', category:['mobile'], platforms:'Mobile App',
       tags:['Healthcare','Booking'],
-      desc:"Location-based booking of trusted, qualified nurses at their specified rates for convenient at-home medical care."
+      desc:"Location-based booking of trusted, qualified nurses at their specified rates for convenient at-home medical care.",
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/details?id=com.zahid_iqbal699.nurseaid'}]
     },
     {
       icon:'⚖️', title:'Premier LAT Preparations', category:['legal'], platforms:'Mobile App',
       tags:['Legal Education','Exam Prep'],
-      desc:"Exam prep for Pakistan's LL.B admission test — solved MCQs by syllabus, essay-writing techniques, and full-length mock tests."
+      desc:"Exam prep for Pakistan's LL.B admission test — solved MCQs by syllabus, essay-writing techniques, and full-length mock tests.",
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/details?id=com.cofounder.premierlat'}]
     },
     {
       icon:'📚', title:'Pakistan Legal Reference Suite', category:['legal'], platforms:'Android',
       tags:['Legal Reference','5 Apps'],
       desc:"A suite of five reference apps for Pakistani law — Civil Procedure Code, Qanun-e-Shahadat Order, Specific Relief Act, The Contract Act, and Criminal Procedure — each with full text, fast search, and easy sharing.",
-      featured:true
+      featured:true,
+      links:[
+        {label:'Civil Procedure Code', url:'https://play.google.com/store/apps/details?id=com.cofounder.civilprocedurecode'},
+        {label:'Qanun-e-Shahadat Order', url:'https://play.google.com/store/apps/details?id=com.cofounder.qanuneshahadat'},
+        {label:'Specific Relief Act', url:'https://play.google.com/store/apps/details?id=com.cofounder.specificreliefact'},
+        {label:'The Contract Act', url:'https://play.google.com/store/apps/details?id=com.cofounder.thecontractact'},
+        {label:'Criminal Procedure', url:'https://play.google.com/store/apps/details?id=com.cofounder.criminalprocedure'}
+      ]
     },
     {
       icon:'☁️', title:'Premier Cloud', category:['web'], platforms:'Web Platform',
       tags:['Document Management','Enterprise'],
-      desc:"A document management portal for Premier International Consultants, giving admins control over access and permissions across projects and users."
+      desc:"A document management portal for Premier International Consultants, giving admins control over access and permissions across projects and users.",
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/details?id=com.cofounder.pcloud'}]
     },
     {
       icon:'🗂️', title:'PIC Portal', category:['web'], platforms:'Web Platform',
       tags:['EdTech','Admin Portal'],
-      desc:"An admin portal streamlining every phase of the student application process for Premier International Consultants."
+      desc:"An admin portal streamlining every phase of the student application process for Premier International Consultants.",
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/details?id=com.cofounder.picportal'}]
     },
     {
       icon:'🎮', title:'Under 10MB: Game Collection', category:['games'], platforms:'Mobile App',
       tags:['Offline Games','100+ Titles'],
-      desc:"A lightweight (under 10MB) collection of 100+ offline and online mini games — puzzles, arcade, sports and racing in one place."
+      desc:"A lightweight (under 10MB) collection of 100+ offline and online mini games — puzzles, arcade, sports and racing in one place.",
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/details?id=com.OfflineGames'}]
     },
     {
       icon:'📲', title:'Apps For Public', category:['games'], platforms:'Play Console',
       tags:['Publishing','Entertainment'],
-      desc:"A published catalog of entertainment and offline-game apps built for ease of use and broad, everyday appeal."
+      desc:"A published catalog of entertainment and offline-game apps built for ease of use and broad, everyday appeal.",
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/developer?id=Apps+For+Public'}]
     },
     {
       icon:'🏏', title:'Cricklub', category:['mobile'], platforms:'Mobile App',
       tags:['Sports','Team Management'],
-      desc:"Cricket scoring and team management — detailed match stats, captain-led team control, profiles, and an ad-based rewards system."
+      desc:"Cricket scoring and team management — detailed match stats, captain-led team control, profiles, and an ad-based rewards system.",
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/details?id=io.cricket.app&hl=en&gl=US'}]
     },
     {
       icon:'🏫', title:'Ghazai School Management App', category:['business','mobile'], platforms:'iOS · Android',
@@ -691,7 +739,8 @@
     {
       icon:'🍸', title:'Barkeep', category:['business'], platforms:'iOS · Android',
       tags:['Operations','Task Management'],
-      desc:"Helps bars and restaurants run opening/closing checklists, assign tasks, capture signatures, and upload photos for accountability."
+      desc:"Helps bars and restaurants run opening/closing checklists, assign tasks, capture signatures, and upload photos for accountability.",
+      links:[{label:'View Live', url:'https://play.google.com/store/apps/details?id=com.techfy.barkeeper'}]
     },
   ];
 
@@ -704,7 +753,10 @@
         <h3>${p.title}</h3>
         <p>${p.desc}</p>
         <div class="card-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-        <div class="card-platforms">${p.platforms}</div>
+        <div class="card-footer">
+          <div class="card-platforms">${p.platforms}</div>
+          ${p.links && p.links.length ? `<div class="card-links">${p.links.map(l => `<a class="card-link" href="${l.url}" target="_blank" rel="noopener">${l.label} →</a>`).join('')}</div>` : ''}
+        </div>
       </div>
     `).join('');
   }
